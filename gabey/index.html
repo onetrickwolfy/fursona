@@ -22,14 +22,14 @@
 
     <div class="container">
         <section class="art">
-            <img src="img/reference_sheet.png" />
+            <img src="img/reference_sheet.png"/>
             <img src="img/sitting.png" />
             <img src="img/cozy.png" />
             <img src="img/stickers1.png" />
-            <img src="img/senna.jpg" />
+            <img src="img/senna.jpg"  class='secret' />
             <img src="img/horny.jpg" />
-            <img src="img/big-paws.png" />
-            <img src="img/big-paws-socks.png" />
+            <img src="img/big-paws.png"  class='secret'/>
+            <img src="img/big-paws-socks.png"  class='secret'/>
             <img src="img/cool-bust.png" />
             <img src="img/squishy.png" />
             <img src="img/pool.png" />
@@ -45,4 +45,34 @@
 
 </body>
 
+<script>
+
+    const pressed = [];
+    const secretCode = 'footpaws';
+    var is_hidden = true; 
+
+    window.addEventListener('keyup', (e) => {
+
+        pressed.push(e.key);
+        pressed.splice(-secretCode.length -1, pressed.length - secretCode.length);
+        if ( pressed.join('').includes(secretCode) ) {
+            hiddenImage = document.getElementsByClassName('secret');
+
+            for(let i = 0; i < hiddenImage.length; i++) {
+
+                if(is_hidden) {
+                    hiddenImage[i].style.display = 'inline-block';
+                } else {
+                    hiddenImage[i].style.display = 'none';
+                }
+            }
+
+            is_hidden = !is_hidden;
+            pressed.splice(0, pressed.length);
+        }
+
+        console.log(pressed);
+    });
+    
+</script>
 </html>

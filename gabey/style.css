@@ -3,6 +3,10 @@ body {
     font-family: monospace;
 }
 
+.secret  {
+    display: none;
+}
+
 header {
     background-color: #DC3B3B;
     padding: 16px;
